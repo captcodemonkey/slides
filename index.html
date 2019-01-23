@@ -1,0 +1,133 @@
+<!doctype html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+		<title>reveal.js</title>
+
+		<link rel="stylesheet" href="css/reveal.css">
+		<link rel="stylesheet" href="css/theme/solarized.css">
+		<link rel="stylesheet" href="css/custom.css">
+
+		<!-- Theme used for syntax highlighting of code -->
+		<link rel="stylesheet" href="lib/css/zenburn.css">
+
+		<!-- Printing and PDF exports -->
+		<script>
+			var link = document.createElement( 'link' );
+			link.rel = 'stylesheet';
+			link.type = 'text/css';
+			link.href = window.location.search.match( /print-pdf/gi ) ? 'css/print/pdf.css' : 'css/print/paper.css';
+			document.getElementsByTagName( 'head' )[0].appendChild( link );
+		</script>
+	</head>
+	<body>
+		<img class="logo" src="css/jbh-logo.svg" alt="JB Hunt Logo" height="48px">
+		<div class="reveal">
+			<div class="slides">
+				<section data-transition="fade">
+					<div class="hero"><img src="css/pwa-lighthouse.png" /></div>
+					<h2>Lighthouse Performance Auditing</h2>
+					<p class="center">A brief introduction to performance auditing with lighthouse.</p>
+					<p class="small center">Presentend By: <span>Craig McCoy</span></p>
+				</section>
+				<section data-transition="fade">
+					<div class="hero"><img src="css/pwa-lighthouse.png" /></div>
+					<h2>Intro</h2>
+					<ul>
+						<li class="fragment">Why do we care about performance?</li>
+						<li class="fragment">How can lighthouse help?</li>
+						<li class="fragment">Next steps</li>
+					</ul>
+				</section>
+				<section data-transition="fade">
+					<h2>Why Performance?</h2>
+					<ul>
+						<li class="fragment">Speed is now a factor in search ranking.</li>
+						<li class="fragment">User satisfaction, conversion rates, and usability are all impacted by performance.</li>
+						<li class="fragment">Brand performance and competition</li>
+					</ul>
+				</section>
+				<section data-transition="fade">
+					<h2>Why Lighthouse?</h2>
+					<ul>
+						<li class="fragment"><span>Google:</span> (They know a few things about search and web)</li>
+						<li class="fragment"><span>Free and simple:</span> in Chrome DevTools since Chrome 60</li>
+						<li class="fragment"><span>It works:</span> local, firewall, if you can see it lighthouse can see it</li>
+						<li class="fragment"><span>Extensible:</span> standalone CLI<br />[ npm i -g lighthouse]</li>
+						<li class="fragment"><span>Brand</span> performance and competition</li>
+					</ul>
+				</section>
+				<section data-transition="fade">
+					<img class="hero" src="css/wLighthouse-settings3.png" />
+					<h2>How does it work?</h2>
+					<p>When running tests, Lighthouse by default runs from a cold cache (no files in cache),
+						emulating 3G network speeds and average mobile device hardware by throttling the network and 
+						slowing down the CPU by 4x the machine's default speed. (To attempt to emulate real-world browsing conditions on average mobile hardware)
+					</p>
+					<p>
+						<a href="https://snugug.com/musings/lighthouse-web-performance-architecture-and-you/">https://snugug.com/musings/lighthouse-web-performance-architecture-and-you/</a>
+					</p>
+				</section>
+				<section data-transition="fade">
+					<img class="hero" src="css/wLighthouse-settings3.png" />
+					<h2>Demo</h2>
+					<a href="http://bradfrost.com" target="_blank">http://bradfrost.com</a>
+				</section>
+
+				<section data-transition="fade">
+					<h2>Demo findings & performance</h2>
+					<ul>
+						<li class="fragment"><span>Is It Happening:</span><br />Has my navigation started, server response</li>
+						<li class="fragment"><span>Is It useful</span> is enough critical content painted to engage</li>
+						<li class="fragment"><span>Is it usable:</span> Can I actually engage or is it still busy?</li>
+						<li class="fragment"><span>Is it delightful?:</span> Was I surprised by the lack of jank, slowness, etc</li>
+					</ul>
+				</section>
+				<section data-transition="fade">
+					<h2>Demo findings & performance</h2>
+					<ul>
+						<li class="fragment"><span>Is It Happening:</span><br />First Contentful Paint (FCP)</li>
+						<li class="fragment"><span>Is It useful</span> First Meaningful Paint (FMP)</li>
+						<li class="fragment"><span>Is it usable:</span> Time to Interactive (TT*I)</li>
+						<li class="fragment"><span>Is it delightful?:</span> Visually Complete / Speed Index</li>
+					</ul>
+				</section>
+				<section data-transition="fade">
+					<h2>Understanding Web Performance and Where to Optimize</h2>
+					<p>1KB JS > 1KB Images > 1KB CSS > 1KB HTML</p>
+				</section>
+				<section data-transition="fade">
+					<h2>Performance</h2>
+					<p>Set up a performance budget<br />
+					<a href="http://bradfrost.com/blog/post/performance-budget-builder/" target="_blank">http://bradfrost.com/blog/post/performance-budget-builder/</a></p>
+					<p>Performance Checklist<br />
+					<a href="https://www.smashingmagazine.com/2019/01/front-end-performance-checklist-2019-pdf-pages/" target="_blank">https://www.smashingmagazine.com/2019/01/front-end-performance-checklist-2019-pdf-pages/</a></p>
+					<p>Critical Rendering Path (CRP) === Above the fold (ATF)</p>
+				</section>
+				<section data-transition="fade">
+					<h2>Next Steps</h2>
+					[ Discuss ]
+				</section>
+			</div>
+		</div>
+
+		<script src="lib/js/head.min.js"></script>
+		<script src="js/reveal.js"></script>
+
+		<script>
+			// More info about config & dependencies:
+			// - https://github.com/hakimel/reveal.js#configuration
+			// - https://github.com/hakimel/reveal.js#dependencies
+			Reveal.initialize({
+				dependencies: [
+					{ src: 'plugin/markdown/marked.js' },
+					{ src: 'plugin/markdown/markdown.js' },
+					{ src: 'plugin/notes/notes.js', async: true },
+					{ src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } }
+				]
+			});
+		</script>
+	</body>
+</html>
